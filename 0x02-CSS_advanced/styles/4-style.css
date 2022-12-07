@@ -2,20 +2,20 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    color: #161616;
+    color: var(--text-color);
     font-family: var(--font-family-base);
 }
 a {
-    color: #161616;
+    color: var(--text-color);
 }
 .visually-hidden {
     display: none;
 }
 .card-category {
-    color: #d73953;
+    color: var(--color-primary);
 }
 .section-tagline {
-    color: #D73953;
+    color: var(--color-primary);
 }
 :root {
     --color-primary: #d73953;
