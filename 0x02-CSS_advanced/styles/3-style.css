@@ -22,5 +22,5 @@ a {
     --color-white: #ffffff;
     --color-light-grey: #f3f3f3;
     --color-dark-gery: #353535;
-    --text-color:var(--color-black)
+    --text-color:var(--color-black);
 }
