@@ -28,5 +28,5 @@ a {
     --font-family-title: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 h1,h2,h3,h4,h5,h6 {
-    --font-family: var(--font-family-title);
+    font-family: var(--font-family-title);
 }
