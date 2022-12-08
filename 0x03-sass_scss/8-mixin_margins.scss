@@ -1,9 +1,15 @@
 /* Mixin Margins */
-body {
+@mixin marg1 {
     margin-left: 10px;
     margin-right: 10px;
 }
-div {
+@mixin marg2 {
     margin-left: 15px;
     margin-right: 15px;
+}
+body {
+    @include marg1()
+}
+div {
+    @include marg2()
 }
