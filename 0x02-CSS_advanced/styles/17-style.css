@@ -184,7 +184,7 @@ html {
 body {
     color: var(--text-color);
     font-family: var(--font-family-base);
-    font-size: var(--font-family-medium);
+    font-size: var(--font-size-medium);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-base);
 }
@@ -208,7 +208,7 @@ a:active {
     color: var(--color-primary);
 }
 .section {
-  padding: var(--section-padding);
+    padding: var(--section-padding);
 }
 .section-header {
     text-align: var(--section-header-align);
