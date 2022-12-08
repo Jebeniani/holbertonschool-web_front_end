@@ -301,13 +301,13 @@ ul.row {
   --text-color: var(--color-white);
   --section-title-color: var(--color-white);
 }
-.footer-adress {
+.footer-address {
   color: var(--text-color);
 }
 .social-link {
   display: block;
 }
-.social-link>svg {
+.social-link > svg {
   fill: var(--text-color);
 }
 :root {
