@@ -342,7 +342,21 @@
   }
   
   /* Section HERO
-      ============================= */
+  ============================= */
+
+  .section-hero {
+    position: relative;
+    margin-top: -8.5rem;
+  }
+
+  .section-hero .section-body {
+    padding: 10rem 4rem;
+  }
+
+  .section-hero .section-category {
+    color: var(--color-white);
+    text-transform: uppercase;
+  }
   
   .section-homepage {
     background-position: 75% 0;
@@ -363,19 +377,6 @@
     min-height: 50vh;
   }
 
-  .section-hero {
-    position: relative;
-    margin-top: -8.5rem;
-  }
-
-  .section-hero .section-body {
-    padding: 10rem 4rem;
-  }
-
-  .section-hero .section-category {
-    color: var(--color-white);
-    text-transform: uppercase;
-  }
 
   /* Section Latest news ============================= */
   .section-latest-news .row {
