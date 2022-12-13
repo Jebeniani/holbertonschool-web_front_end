@@ -593,7 +593,7 @@
     }
 
     .post-meta-list [class*='post-meta-']:last-child {
-      border: "";
+      border: none;
       margin-bottom: 3rem;
     }
 
@@ -602,7 +602,7 @@
 
     .tag-list {
       padding: 0;
-      list-style: "";
+      list-style: none;
     }
 
     .tag-list li {
@@ -613,6 +613,6 @@
       content: ", ";
     }
 
-    .tag-list li::after:last-child {
+    .tag-list li:last-child::after {
       content: "";
     }
