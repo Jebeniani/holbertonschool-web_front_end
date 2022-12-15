@@ -675,6 +675,6 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    border-style: none;
+    border: none;
     padding: 0 0 2rem;
   }
