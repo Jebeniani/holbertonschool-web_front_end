@@ -160,7 +160,7 @@
     background: var(--color-primary);
   }
 
-  a.button-primary:hover {
+  .button-primary:hover {
     color: var(--color-primary);
     background: var(--color-white);
   }
