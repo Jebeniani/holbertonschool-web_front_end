@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shopping Cart</title>
+</head>
+
+<body>
+    <script>
+        if (typeof (Storage) !== "undefined") {
+            const availableItems = ["Shampoo", "Soap", "Sponge", "Water"];
+
+            // Create function to add item to cart
+            function addItemToCart(item) {
+                localStorage.setItem(item, true);
+            }
+
+            // Create function to create store
+            function createStore() {
+                const store = document.createElement("ul");
+
+                // Loop through available items and create list items
+                for (let i = 0; i < availableItems.length; i++) {
+                    const item = availableItems[i];
+                    const li = document.createElement("li");
+                    li.innerHTML = item;
+                    li.addEventListener("click", () => addItemToCart(item));
+                    store.appendChild(li);
+                }
+
+                // Append ul to body
+                document.body.appendChild(store);
+            }
+
+            // Create function to display cart
+            function displayCart() {
+                let itemsInCart = 0;
+                for (let i = 0; i < localStorage.length; i++) {
+                    itemsInCart++;
+                }
+                if (itemsInCart > 0) {
+                    const message = document.createElement("p");
+                    message.innerHTML = `You previously had ${itemsInCart} items in your cart`;
+                    document.body.appendChild(message);
+                }
+            }
+
+            // Call createStore and displayCart functions
+            createStore();
+            displayCart();
+
+        } else {
+            // Local storage not available
+            alert("Sorry, your browser does not support Web storage. Try again with a better one.");
+        }
+    </script>
+</body>
+
+</html>
