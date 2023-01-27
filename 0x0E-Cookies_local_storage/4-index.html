@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Using js-cookie</title>
+    <style>
+        .form {
+            display: none;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3/dist/js.cookie.min.js"></script>
+    <script type="application/javascript"></script>
+</head>
+
+<body>
+    <div id="form" class="form">
+        <h2>Please log in</h2>
+        <input type="text" id="firstname" placeholder="Enter your first name">
+        <input type="text" id="email" placeholder="Enter your email">
+        <button onclick="setCookies()">Log me in</button>
+    </div>
+    <script>
+        function setCookies() {
+            var firstname = document.getElementById("firstname").value;
+            var email = document.getElementById("email").value;
+            var expiryDate = new Date();
+            expiryDate.setTime(expiryDate.getTime() + (10 * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + expiryDate.toUTCString();
+            document.cookie = "firstname=" + firstname + "; " + expires;
+            document.cookie = "email=" + email + "; " + expires;
+            showWelcomeMessageOrForm();
+        }
+        function showForm() {
+            var form = document.getElementById("form");
+            form.style.display = "block";
+        }
+        function hideForm() {
+            var form = document.getElementById("form");
+            form.style.display = "none";
+        }
+        function getCookie(name) {
+            var firstname = Cookies.get('firstname');
+            var email = Cookies.get('email');
+        }
+        function deleteCookiesAndShowForm() {
+            document.cookie = "firstname=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+            document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+            Cookies.remove('firstname');
+            Cookies.remove('email');
+            showForm();
+        }
+        function showWelcomeMessageOrForm() {
+            var firstname = getCookie("firstname");
+            if (firstname != "") {
+                var h1 = document.createElement("h1");
+                h1.innerHTML = "Welcome " + firstname + " ";
+                var logoutLink = document.createElement("a");
+                logoutLink.innerHTML = "(logout)";
+                logoutLink.style.fontStyle = "italic";
+                logoutLink.style.marginLeft = "10px";
+                logoutLink.href = "#";
+                logoutLink.onclick = deleteCookiesAndShowForm;
+                h1.appendChild(logoutLink);
+                document.body.innerHTML = "";
+                document.body.appendChild(h1);
+            } else {
+                showForm();
+            }
+        }
+        function setCookiesAndShowWelcomeMessage() {
+            var firstname = document.getElementById('firstname').value;
+            var email = document.getElementById('email').value;
+            Cookies.set('firstname', firstname, { expires: 10 });
+            Cookies.set('email', email, { expires: 10 });
+        }
+        showWelcomeMessageOrForm();
+    </script>
+</body>
+
+</html>
