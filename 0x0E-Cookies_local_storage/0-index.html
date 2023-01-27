@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HTML Template</title>
+</head>
+
+<body>
+    <main>
+        <div>
+            <h1>Login to the website</h1>
+            <input type="text" id="firstname" placeholder="Enter your first name">
+            <input type="text" id="email" placeholder="Enter your email">
+            <button onclick="setCookies()">Log me in</button>
+            <h1>Cookies</h1>
+            <button onclick="showCookies()">Show the cookies</button>
+        </div>
+    </main>
+</body>
+<script>
+    function setCookies() {
+        var firstname = document.getElementById("firstname").value;
+        var email = document.getElementById("email").value;
+        document.cookie = "firstname=" + firstname;
+        document.cookie = "email=" + email;
+    }
+    function showCookies() {
+        var p = document.createElement("p");
+        var cookies = document.cookie;
+        p.innerHTML = "Cookies: " + cookies;
+        document.body.appendChild(p);
+    }
+</script>
+
+</html>
