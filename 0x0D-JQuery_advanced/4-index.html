@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+</head>
+
+<body>
+    <script>
+        function createFamilyTree() {
+            // create table elements
+            var table = $('<table>');
+            var thead = $('<thead>');
+            var tbody = $('<tbody>');
+
+            // create head cells
+            var th1 = $('<th>').text('Firstname');
+            var th2 = $('<th>').text('Lastname');
+
+            // create rows
+            var tr1 = $('<tr>');
+            var tr2 = $('<tr>');
+            var tr3 = $('<tr>');
+
+            // create cells
+            var td11 = $('<td>').text('Guillaume');
+            var td12 = $('<td>').text('Salva');
+            var td21 = $('<td>').text('Paulette');
+            var td22 = $('<td>').text('Salva');
+            var td31 = $('<td>').text('Antoine');
+            var td32 = $('<td>').text('Salva');
+
+            // append cells to rows
+            tr1.append(td11, td12);
+            tr2.append(td21, td22);
+            tr3.append(td31, td32);
+
+            // append rows to tbody
+            tbody.append(tr1, tr2, tr3);
+
+            // append head cells to thead
+            thead.append(th1, th2);
+
+            // append thead and tbody to table
+            table.append(thead, tbody);
+
+            // append table to body
+            $('body').append(table);
+        }
+
+        function replaceFamilyTree() {
+            var newRow = $('<tr>');
+            var newCell1 = $('<td>').text('Gerard');
+            var newCell2 = $('<td>').text('Bonissa');
+            newRow.append(newCell1, newCell2);
+            $('tbody').html(newRow);
+        }
+
+        $(document).ready(function () {
+            createFamilyTree();
+            replaceFamilyTree();
+        });
+    </script>
+</body>
+
+</html>
