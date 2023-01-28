@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>setup of the Dev environment</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+</head>
+
+<body>
+    <script>
+        function createFamilyTree() {
+            var table = $("<table>");
+            var thead = $("<thead>");
+            var tbody = $("<tbody>");
+            var trHead = $("<tr>");
+            var thFirstname = $("<th>").text("Firstname");
+            var thLastname = $("<th>").text("Lastname");
+            var trFirst = $("<tr>");
+            var tdFirstname1 = $("<td>").text("Guillaume");
+            var tdLastname1 = $("<td>").text("Salva");
+            var trSecond = $("<tr>");
+            var tdFirstname2 = $("<td>").text("Paulette");
+            var tdLastname2 = $("<td>").text("Salva");
+            var trThird = $("<tr>");
+            var tdFirstname3 = $("<td>").text("Antoine");
+            var tdLastname3 = $("<td>").text("Salva");
+
+            trHead.append(thFirstname, thLastname);
+            thead.append(trHead);
+            trFirst.append(tdFirstname1, tdLastname1);
+            trSecond.append(tdFirstname2, tdLastname2);
+            trThird.append(tdFirstname3, tdLastname3);
+            tbody.append(trFirst, trSecond, trThird);
+            table.append(thead, tbody);
+            $("body").append(table);
+        }
+        createFamilyTree();
+    </script>
+</body>
+
+</html>
