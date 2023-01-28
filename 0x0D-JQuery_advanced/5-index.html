@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+</head>
+
+<body>
+    <script>
+        function createFamilyTree() {
+            // Create table element
+            let table = $('<table>');
+            // Create thead element and append to table
+            let thead = $('<thead>').appendTo(table);
+            // Create tr element and append to thead
+            let tr = $('<tr>').appendTo(thead);
+            // Create th element for Firstname and append to tr
+            $('<th>').text('Firstname').appendTo(tr);
+            // Create th element for Lastname and append to tr
+            $('<th>').text('Lastname').appendTo(tr);
+            // Create tbody element and append to table
+            $('<tbody>').appendTo(table);
+            // Append table to the body
+            table.appendTo('body');
+        }
+
+        function addNewMember(firstName, lastName) {
+            // Create tr element
+            let tr = $('<tr>');
+            // Create td element for Firstname and append to tr
+            $('<td>').text(firstName).appendTo(tr);
+            // Create td element for Lastname and append to tr
+            $('<td>').text(lastName).appendTo(tr);
+            // Create td element for remove button and append to tr
+            let removeBtn = $('<td>').text('(x)').appendTo(tr);
+            removeBtn.css("background-color", "orange");
+            // Add click event to remove button
+            removeBtn.click(function () {
+                $(this).parent().remove();
+            });
+            // Add CSS class to remove button
+            removeBtn.addClass('removeBtn');
+            // Append tr to tbody
+            tr.appendTo('tbody');
+        }
+
+        $(document).ready(function () {
+            createFamilyTree();
+            addNewMember('Guillaume', 'Salva');
+            addNewMember('Arielle', 'Snizt');
+            addNewMember('Fanette', 'Snizt');
+            addNewMember('Gerard', 'Snizt');
+            addNewMember('Victor', 'Salva');
+        });
+    </script>
+
+</body>
+
+</html>
