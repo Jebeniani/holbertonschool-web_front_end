@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #results li {
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        #pagination li {
+            cursor: pointer;
+            margin-left: 10px;
+            display: inline-block;
+        }
+
+        #pagination li.current-page {
+            font-weight: bold;
+        }
+    </style>
+    </head>
+
+    <body>
+        <form id="search-form">
+            <input type="text" id="query">
+            <button type="submit">Search</button>
+        </form>
+        <ul id="results"></ul>
+        <ul id="pagination"></ul>
+        <script>
+            function createSearchForm() {
+                $('body').append($('<ul>', { id: 'results' }));
+                $('body').append($('<ul>', { id: 'pagination' }));
+            }
+
+            function queryWikipedia(offset = 0) {
+                const query = $('#query').val();
+                const data = {
+                    action: 'query',
+                    list: 'search',
+                    srsearch: query,
+                    format: 'json',
+                    srlimit: 10,
+                    sroffset: offset
+                };
+
+                $.ajax({
+                    url: 'https://en.wikipedia.org/w/api.php',
+                    data: data,
+                    dataType: 'jsonp',
+                    success: function (data) {
+                        $('#results').empty();
+                        const hits = data.query.search;
+                        hits.forEach(function (hit) {
+                            $('#results').append($('<li>').text(hit.title));
+                        });
+
+                        buildPagination(data.query.searchinfo.totalhits, 10, offset);
+                    }
+                });
+            }
+
+            function buildPagination(numberOfItems, itemsPerPage, currentOffset) {
+                $('#pagination').empty();
+                const numberOfPages = Math.ceil(numberOfItems / itemsPerPage);
+                for (let i = 0; i < numberOfPages; i++) {
+                    const pageNumber = i + 1;
+                    const offset = i * itemsPerPage;
+                    $('#pagination').append(
+                        $('<li>', {
+                            text: pageNumber,
+                            class: offset === currentOffset ? 'current-page' : '',
+                            click: function () {
+                                queryWikipedia(offset);
+                            }
+                        })
+                    );
+                }
+            }
+
+            $(document).ready(function () {
+                createSearchForm();
+                $('#search-form').submit(function (e) {
+                    e.preventDefault();
+                    queryWikipedia();
+                });
+            });
+        </script>
+    </body>
+
+</html>
