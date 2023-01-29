@@ -1,0 +1,64 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "title": "json-server",
+            "author": "typicode"
+        },
+        {
+            "title": "jobnah1",
+            "author": "jben1",
+            "id": 2
+        },
+        {
+            "title": "jobnah2",
+            "author": "jben2",
+            "id": 3
+        },
+        {
+            "title": "jobnah3",
+            "author": "jben3",
+            "id": 4
+        },
+        {
+            "title": "jobnah4",
+            "author": "jben4",
+            "id": 5
+        },
+        {
+            "title": "jobnah5",
+            "author": "jben5",
+            "id": 6
+        },
+        {
+            "title": "jobnah6",
+            "author": "jben6",
+            "id": 7
+        },
+        {
+            "title": "jobnah7",
+            "author": "jben7",
+            "id": 8
+        },
+        {
+            "title": "jobnah8",
+            "author": "jben8",
+            "id": 9
+        },
+        {
+            "title": "jobnah9",
+            "author": "jben9",
+            "id": 10
+        }
+    ],
+    "comments": [
+        {
+            "id": 1,
+            "body": "some comment",
+            "postId": 1
+        }
+    ],
+    "profile": {
+        "name": "typicode"
+    }
+}

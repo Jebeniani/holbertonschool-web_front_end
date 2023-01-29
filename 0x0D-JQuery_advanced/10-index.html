@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script>
+        function addPostRow(data) {
+            $("body").append("<p>Post created with id " + data.id + ", title: " + data.title + ", author: " + data.author + "</p>");
+        }
+        function listPosts() {
+            $.ajax({
+                url: "http://localhost:3000/posts",
+                success: function (response) {
+                    response.forEach(function (post) {
+                        addPostRow(post);
+                    });
+                },
+                error: function () {
+                    alert("Server Error");
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            listPosts();
+        });
+    </script>
+
+</body>
+
+</html>
